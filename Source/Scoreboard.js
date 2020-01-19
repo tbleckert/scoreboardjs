@@ -356,27 +356,12 @@ provides: [Scoreboard]
 			    seconds = Number.from(time.split(':')[1]),
 			    minutes = Number.from(time.split(':')[0]);
 					
-			if (this.options.timeDirection === 'down') {
-				seconds -= 1;
-				
-				if (seconds < 0 && minutes > 0) {
-					seconds  = 59;
-					minutes -= 1; 
-				} else if (seconds > 0 && minutes === 0) {
-					seconds -= 1;
-				}
-				
-				if (seconds < 0) {
-					seconds = 0;
-				}
-			} else {
 				seconds += 1;
 			
 				if (seconds >= 60) {
 					seconds = 0;
 					minutes += 1;
 				}
-			}
 			
 			seconds = (seconds < 10) ? '0' + String.from(seconds) : String.from(seconds);
 			minutes = (minutes < 10) ? '0' + String.from(minutes) : String.from(minutes);
